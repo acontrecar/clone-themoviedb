@@ -1,0 +1,30 @@
+header {
+  padding: 2%;
+  background-color: aquamarine;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .menu {
+      .menu-nav {
+        display: flex;
+        list-style: none;
+
+        .nav-item {
+          margin: 10px 15px;
+        }
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  width: 154px;
+  height: 20px;
+}

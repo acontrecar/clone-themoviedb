@@ -1,0 +1,10 @@
+<section class="home_sections">
+  <div>
+    <h2>Tendencias</h2>
+  </div>
+  <div class="movies_section">
+    @for (movie of movies(); track movie.id) {
+    <home-movie-card-home [movie]="movie" />
+    }
+  </div>
+</section>
