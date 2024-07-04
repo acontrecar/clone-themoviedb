@@ -5,4 +5,5 @@ export interface Movie {
   rating: number;
   poster: string;
   backdrop: string;
+  first_air_date?: Date;
 }

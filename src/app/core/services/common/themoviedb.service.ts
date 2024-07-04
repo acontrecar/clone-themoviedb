@@ -13,18 +13,6 @@ export class ThemoviedbService {
   private readonly baseUrl: string = environment.BASE_API_URL;
   private http = inject(HttpClient);
 
-  // public getTrendingAllByDay(): Observable<Movie[]> {
-  //   const url = `${this.baseUrl}/trending/all/day`;
-
-  //   return this.http
-  //     .get<TrendingAllResponse>(url)
-  //     .pipe(
-  //       map((response) =>
-  //         response.results.map((movie) => mapToSimplifiedMovie(movie))
-  //       )
-  //     );
-  // }
-
   public getTrendingMovies(timeWindow: string): Observable<Movie[]> {
     const url = `${this.baseUrl}/trending/all/${timeWindow}`;
 
@@ -37,15 +25,15 @@ export class ThemoviedbService {
       );
   }
 
-  // public getTrendingAllByWeek(): Observable<Movie[]> {
-  //   const url = `${this.baseUrl}/trending/all/week`;
+  public getPopularMovies(timeWindow: string): Observable<Movie[]> {
+    const url = `${this.baseUrl}/${timeWindow}/popular`;
 
-  //   return this.http
-  //     .get<TrendingAllResponse>(url)
-  //     .pipe(
-  //       map((response) =>
-  //         response.results.map((movie) => mapToSimplifiedMovie(movie))
-  //       )
-  //     );
-  // }
+    return this.http
+      .get<TrendingAllResponse>(url)
+      .pipe(
+        map((response) =>
+          response.results.map((movie) => mapToSimplifiedMovie(movie))
+        )
+      );
+  }
 }
