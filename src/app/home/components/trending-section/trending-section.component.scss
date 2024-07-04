@@ -1,6 +1,20 @@
 .home_sections {
+  .home_sections__header {
+    display: flex;
+    .home_sections__header___sub {
+      display: flex;
+      // padding-left: 20px;
+      // gap: 20px;
+      // border: 1px solid black;
+      // border-radius: 30px;
+    }
+  }
   .movies_section {
     overflow-x: scroll;
     overflow-y: hidden;
+
+    width: 100%;
+    padding: 20px;
+    white-space: nowrap;
   }
 }

@@ -1,9 +1,10 @@
 .card {
-  padding-left: 5%;
-
-  padding-top: 20px;
-  padding-bottom: 20px;
-
+  width: 155px; /* Ancho fijo para todas las tarjetas */
+  text-align: center; /* Centrar el contenido */
+  margin: 10px;
+  background: #fff; /* Fondo blanco para destacar las tarjetas */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   .image {
     border-top: 2px;
     border-bottom: 2px;

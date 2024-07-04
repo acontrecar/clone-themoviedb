@@ -1,6 +1,11 @@
 <section class="home_sections">
-  <div>
+  <div class="home_sections__header">
     <h2>Tendencias</h2>
+
+    <div class="home_sections__header___sub">
+      <button (click)="changeCategory(timeCategory.Day)">Hoy</button>
+      <button (click)="changeCategory(timeCategory.Week)">Esta Semana</button>
+    </div>
   </div>
   <div class="movies_section">
     @for (movie of movies(); track movie.id) {
