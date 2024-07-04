@@ -1,8 +1,17 @@
 <div class="card">
-  <img class="image" [src]="movie.poster" alt="Poster pelicula" />
+  <div class="image-container">
+    <img
+      loading="lazy"
+      class="image"
+      [src]="movie.poster"
+      alt="Poster de la película"
+    />
+    <div class="rating">{{ movie.rating }}</div>
+    <abbr [title]="movie.title"></abbr>
+  </div>
 
   <div class="container">
-    <p>{{ movie.title }}</p>
-    <p>{{ movie.releaseData }}</p>
+    <p class="title">{{ movie.title }}</p>
+    <p class="release-date">{{ movie.releaseData | date }}</p>
   </div>
 </div>

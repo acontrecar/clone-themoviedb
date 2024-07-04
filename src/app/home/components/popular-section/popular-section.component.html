@@ -1,19 +1,19 @@
 <section class="home_sections">
   <div class="home_sections__header">
-    <h2>Tendencias</h2>
+    <h2>Lo mas popular</h2>
 
     <div class="home_sections__header__sub">
       <button
-        (click)="changeCategory(timeCategory.Day)"
-        [ngClass]="{ active: currentCategory === timeCategory.Day }"
+        (click)="changeCategory(popularTimeCategory.Tv)"
+        [ngClass]="{ active: currentCategory === popularTimeCategory.Tv }"
       >
-        Hoy
+        En television
       </button>
       <button
-        (click)="changeCategory(timeCategory.Week)"
-        [ngClass]="{ active: currentCategory === timeCategory.Week }"
+        (click)="changeCategory(popularTimeCategory.Movie)"
+        [ngClass]="{ active: currentCategory === popularTimeCategory.Movie }"
       >
-        Esta Semana
+        Peliculas
       </button>
     </div>
   </div>

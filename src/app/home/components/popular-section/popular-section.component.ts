@@ -6,22 +6,23 @@ import {
   signal,
 } from '@angular/core';
 import { Movie } from '../../../core/interfaces/movie.interface';
+import { PopularTimeCategory } from '../../../core/enum/popular-category.enum';
+import { TrendingTimeCategory } from '../../../core/enum/time-category.enum';
 import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
 import { MovieCardHomeComponent } from '../movie-card-home/movie-card-home.component';
-import { TrendingTimeCategory } from '../../../core/enum/time-category.enum';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'home-trending-section',
+  selector: 'home-popular-section',
   standalone: true,
   imports: [MovieCardHomeComponent, NgClass],
-  templateUrl: './trending-section.component.html',
-  styleUrl: './trending-section.component.scss',
+  templateUrl: './popular-section.component.html',
+  styleUrl: './popular-section.component.scss',
 })
-export class TrendingSectionComponent implements OnInit {
+export class PopularSectionComponent implements OnInit {
   public movies: WritableSignal<Movie[]> = signal<Movie[]>([]);
-  public currentCategory: TrendingTimeCategory = TrendingTimeCategory.Day;
-  public timeCategory = TrendingTimeCategory;
+  public currentCategory: PopularTimeCategory = PopularTimeCategory.Tv;
+  public popularTimeCategory = PopularTimeCategory;
   private theMovieDbService = inject(ThemoviedbService);
 
   ngOnInit(): void {
@@ -30,11 +31,11 @@ export class TrendingSectionComponent implements OnInit {
 
   loadMovies(category: string): void {
     this.theMovieDbService
-      .getTrendingMovies(category)
+      .getPopularMovies(category)
       .subscribe((movies) => this.movies.set(movies));
   }
 
-  changeCategory(category: TrendingTimeCategory): void {
+  changeCategory(category: PopularTimeCategory): void {
     this.currentCategory = category;
     this.loadMovies(category);
   }
