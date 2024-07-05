@@ -1,1 +1,11 @@
-<p>movie-cast works!</p>
+<section>
+  <h3>Reparto principal</h3>
+
+  <div class="cast_section">
+    <div class="cast_card_wrapper">
+      @for (cast of cast(); track cast.id) {
+      <common-cast-card [cast]="cast" />
+      }
+    </div>
+  </div>
+</section>

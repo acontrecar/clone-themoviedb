@@ -1,0 +1,13 @@
+.cast_section {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  white-space: nowrap;
+
+  .cast_card_wrapper {
+    display: flex;
+    margin-right: 10px;
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+}
