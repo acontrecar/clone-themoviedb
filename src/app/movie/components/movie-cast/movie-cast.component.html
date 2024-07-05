@@ -1,11 +1,9 @@
 <section>
-  <h3>Reparto principal</h3>
+  <h3 class="section-title">Reparto principal</h3>
 
   <div class="cast_section">
-    <div class="cast_card_wrapper">
-      @for (cast of cast(); track cast.id) {
-      <common-cast-card [cast]="cast" />
-      }
-    </div>
+    @for (cast of cast(); track cast.id) {
+    <common-cast-card [cast]="cast" />
+    }
   </div>
 </section>
