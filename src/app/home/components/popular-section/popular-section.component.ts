@@ -30,9 +30,18 @@ export class PopularSectionComponent implements OnInit {
   }
 
   loadMovies(category: string): void {
-    this.theMovieDbService
-      .getPopularMovies(category)
-      .subscribe((movies) => this.movies.set(movies));
+    this.theMovieDbService.getPopularMovies(category).subscribe((movies) => {
+      if (this.currentCategory === this.popularTimeCategory.Movie) {
+        movies.map((m) => {
+          m.media_type = 'movie';
+        });
+      } else {
+        movies.map((m) => {
+          m.media_type = 'tv';
+        });
+      }
+      this.movies.set(movies);
+    });
   }
 
   changeCategory(category: PopularTimeCategory): void {

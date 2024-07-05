@@ -3,18 +3,13 @@
     <h2>Tendencias</h2>
 
     <div class="home_sections__header__sub">
-      <button
-        (click)="changeCategory(timeCategory.Day)"
-        [ngClass]="{ active: currentCategory === timeCategory.Day }"
-      >
-        Hoy
-      </button>
-      <button
-        (click)="changeCategory(timeCategory.Week)"
-        [ngClass]="{ active: currentCategory === timeCategory.Week }"
-      >
-        Esta Semana
-      </button>
+      <div [ngClass]="{ active: currentCategory === timeCategory.Day }">
+        <a (click)="changeCategory(timeCategory.Day)"> Hoy </a>
+      </div>
+
+      <div [ngClass]="{ active: currentCategory === timeCategory.Week }">
+        <a (click)="changeCategory(timeCategory.Week)"> Esta Semana </a>
+      </div>
     </div>
   </div>
   <div class="movies_section">

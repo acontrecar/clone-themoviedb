@@ -3,18 +3,15 @@
     <h2>Lo mas popular</h2>
 
     <div class="home_sections__header__sub">
-      <button
-        (click)="changeCategory(popularTimeCategory.Tv)"
-        [ngClass]="{ active: currentCategory === popularTimeCategory.Tv }"
-      >
-        En television
-      </button>
-      <button
-        (click)="changeCategory(popularTimeCategory.Movie)"
+      <div [ngClass]="{ active: currentCategory === popularTimeCategory.Tv }">
+        <a (click)="changeCategory(popularTimeCategory.Tv)"> En television </a>
+      </div>
+
+      <div
         [ngClass]="{ active: currentCategory === popularTimeCategory.Movie }"
       >
-        Peliculas
-      </button>
+        <a (click)="changeCategory(popularTimeCategory.Movie)"> Peliculas </a>
+      </div>
     </div>
   </div>
   <div class="movies_section">

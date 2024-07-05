@@ -50,6 +50,10 @@ svg {
   }
 }
 
+main {
+  padding: 5%;
+}
+
 // New styles
 @keyframes fadeIn {
   0% {
@@ -74,29 +78,34 @@ svg {
       margin: 0;
       font-size: 24px;
       color: #333;
+      margin-right: 5%;
     }
 
     .home_sections__header__sub {
       display: flex;
-      margin-left: 5%;
+      align-items: center;
       border: 1px solid black;
       border-radius: 30px;
-      button {
-        margin-left: 10px;
-        padding: 5%;
-        border: none;
-        // background: #007bff;
-        // color: white;
-        cursor: pointer;
-        // border-radius: 5px;
-        transition: background-color 0.3s ease;
+      // gap: 5%;
 
+      div {
         &.active {
           background: #0056b3;
+          border-radius: 30px;
         }
+        a {
+          // margin-left: 10px;
+          // padding: 5%;
+          // margin-left: %;
+          border: none;
+          cursor: pointer;
+          // border-radius: 5px;
+          transition: background-color 0.3s ease;
+          padding: 4px 20px;
 
-        &:hover:not(.active) {
-          background: #0056b3;
+          &.active {
+            background: #0056b3;
+          }
         }
       }
     }
@@ -117,3 +126,5 @@ svg {
     }
   }
 }
+
+// Movie

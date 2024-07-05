@@ -1,0 +1,64 @@
+@if (movie()) {
+<section class="movie_page">
+  <div
+    class="movie_page__background"
+    [ngStyle]="{
+      'background-image':
+        'url(https://image.tmdb.org/t/p/w500/' + movie()?.poster_path + ')'
+    }"
+  ></div>
+  <div class="movie_page__content">
+    <div class="content_image">
+      <img
+        class="img"
+        [src]="'https://image.tmdb.org/t/p/w500/' + movie()?.poster_path"
+        alt="Imagen de la pelicula"
+      />
+      @if (movie()?.homepage) {
+      <div (click)="redirectHomePage()" class="content__subtitle">
+        <div class="text">
+          <span>
+            <h4>Ahora en retransmision</h4>
+            <h4>Ver ahora</h4>
+          </span>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="movie_page__information">
+      <div class="header">
+        <h1>
+          <span>{{ movie()?.title }}</span>
+          <span>({{ movie()?.release_date | date : "yyyy" }})</span>
+        </h1>
+
+        <div class="fact">
+          <span
+            >{{ movie()?.release_date | date : "d/M/yyyy" }} ({{
+              movie()?.original_language?.toUpperCase()
+            }})</span
+          >
+          <span> - </span>
+
+          <span>
+            @for (genres of movie()!.genres; track genres.id; let l = $last) {
+            {{ genres.name }}
+
+            @if (!l) { , } }
+          </span>
+        </div>
+
+        <!-- <a href="">Ver avance</a> -->
+
+        <div class="general_info">
+          <h3>Vista general</h3>
+          <div class="overview">
+            <p>{{ movie()?.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}

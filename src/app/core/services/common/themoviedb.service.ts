@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from '../../interfaces/movie.interface';
+import { Movie, MovieById } from '../../interfaces/movie.interface';
 import { TrendingAllResponse } from '../../interfaces/trending-all-response.interface';
 import { mapToSimplifiedMovie } from '../../mappers/movie.mapper';
 
@@ -35,5 +35,11 @@ export class ThemoviedbService {
           response.results.map((movie) => mapToSimplifiedMovie(movie))
         )
       );
+  }
+
+  public getMovieById(id: string): Observable<MovieById> {
+    const url = `${this.baseUrl}/movie/${id}`;
+
+    return this.http.get<MovieById>(url);
   }
 }
