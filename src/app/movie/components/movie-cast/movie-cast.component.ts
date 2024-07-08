@@ -1,6 +1,12 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
-import { Cast } from '../../../core/interfaces/cast.interface';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  WritableSignal,
+  signal,
+} from '@angular/core';
 import { CastCardComponent } from '../../../common/components/cast-card/cast-card.component';
+import { Cast } from '../../../core/interfaces';
 
 @Component({
   selector: 'movie-movie-cast',
@@ -8,6 +14,7 @@ import { CastCardComponent } from '../../../common/components/cast-card/cast-car
   imports: [CastCardComponent],
   templateUrl: './movie-cast.component.html',
   styleUrl: './movie-cast.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieCastComponent {
   @Input({ required: true })

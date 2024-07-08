@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { CurrencyFormatterPipe } from '../../../core/pipe/currency-formatter.pipe';
-import { Keyword } from '../../../core/interfaces/keywords.interface';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Keyword } from '../../../core/interfaces';
+import { CurrencyFormatterPipe } from '../../../core/pipe';
 
 @Component({
   selector: 'movie-movie-info',
@@ -8,6 +8,7 @@ import { Keyword } from '../../../core/interfaces/keywords.interface';
   imports: [CurrencyFormatterPipe],
   templateUrl: './movie-info.component.html',
   styleUrl: './movie-info.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieInfoComponent {
   @Input({ required: true })

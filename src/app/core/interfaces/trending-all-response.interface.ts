@@ -1,3 +1,5 @@
+import { MediaType } from './recommendations.interfaces';
+
 export interface TrendingAllResponse {
   page: number;
   results: Result[];
@@ -25,11 +27,6 @@ export interface Result {
   title?: string;
   release_date?: Date;
   video?: boolean;
-}
-
-export enum MediaType {
-  Movie = 'movie',
-  Tv = 'tv',
 }
 
 export enum OriginalLanguage {

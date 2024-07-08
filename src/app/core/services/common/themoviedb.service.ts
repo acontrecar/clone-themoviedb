@@ -1,21 +1,23 @@
-import { Injectable, inject } from '@angular/core';
-import { environment } from '../../../../environments/environment';
-import { Observable, map, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Movie, MovieById } from '../../interfaces/movie.interface';
-import { TrendingAllResponse } from '../../interfaces/trending-all-response.interface';
-import { mapToSimplifiedMovie } from '../../mappers/movie.mapper';
-import { Cast, MovieDBCastResponse } from '../../interfaces/cast.interface';
-import { mapToSimplifiedCast } from '../../mappers/cast.mapper';
+import { Injectable, inject } from '@angular/core';
+import { Observable, map } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 import {
+  Movie,
+  TrendingAllResponse,
+  MovieById,
+  Cast,
+  MovieDBCastResponse,
   Keyword,
   MovieDBKeywordsResponse,
-} from '../../interfaces/keywords.interface';
-import {
-  MovieDBRecommendationsResponse,
   Recommendation,
-} from '../../interfaces/recommendations.interfaces';
-import { mapToSimplifiedRecommendation } from '../../mappers/recommendation.mapper';
+  MovieDBRecommendationsResponse,
+} from '../../interfaces';
+import {
+  mapToSimplifiedMovie,
+  mapToSimplifiedCast,
+  mapToSimplifiedRecommendation,
+} from '../../mappers';
 
 @Injectable({
   providedIn: 'root',

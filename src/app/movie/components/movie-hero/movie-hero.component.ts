@@ -1,7 +1,13 @@
-import { Component, Input, WritableSignal, signal } from '@angular/core';
-import { MovieById } from '../../../core/interfaces/movie.interface';
-import { DatePipe, NgStyle } from '@angular/common';
-import { TimeConvertPipe } from '../../../core/pipe/time-convert.pipe';
+import { NgStyle, DatePipe } from '@angular/common';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  WritableSignal,
+  signal,
+} from '@angular/core';
+import { MovieById } from '../../../core/interfaces';
+import { TimeConvertPipe } from '../../../core/pipe';
 
 @Component({
   selector: 'movie-movie-hero',
@@ -9,6 +15,7 @@ import { TimeConvertPipe } from '../../../core/pipe/time-convert.pipe';
   imports: [NgStyle, DatePipe, TimeConvertPipe],
   templateUrl: './movie-hero.component.html',
   styleUrl: './movie-hero.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieHeroComponent {
   @Input({ required: true })

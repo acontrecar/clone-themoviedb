@@ -1,8 +1,8 @@
-import { Component, Input, WritableSignal, signal } from '@angular/core';
-import { Movie } from '../../../core/interfaces/movie.interface';
 import { DatePipe } from '@angular/common';
-import { RounNumberPipe } from '../../../core/pipe/roun-number-pipe.pipe';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Movie } from '../../../core/interfaces';
+import { RounNumberPipe } from '../../../core/pipe';
 
 @Component({
   selector: 'home-movie-card-home',
@@ -10,6 +10,7 @@ import { RouterLink } from '@angular/router';
   imports: [DatePipe, RounNumberPipe, RouterLink],
   templateUrl: './movie-card-home.component.html',
   styleUrl: './movie-card-home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieCardHomeComponent {
   @Input({ required: true })

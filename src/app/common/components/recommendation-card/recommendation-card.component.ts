@@ -1,13 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { MediaType } from '../../../core/interfaces/trending-all-response.interface';
-import { RounNumberPipe } from '../../../core/pipe/roun-number-pipe.pipe';
-import { PercentagePipe } from '../../../core/pipe/percentage.pipe';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterModule,
-} from '@angular/router';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
+import { MediaType } from '../../../core/interfaces';
+import { PercentagePipe } from '../../../core/pipe';
 
 @Component({
   selector: 'common-recommendation-card',

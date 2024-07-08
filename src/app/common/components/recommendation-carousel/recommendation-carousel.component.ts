@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Recommendation } from '../../../core/interfaces/recommendations.interfaces';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Recommendation } from '../../../core/interfaces';
 import { RecommendationCardComponent } from '../recommendation-card/recommendation-card.component';
 
 @Component({
@@ -8,6 +8,7 @@ import { RecommendationCardComponent } from '../recommendation-card/recommendati
   imports: [RecommendationCardComponent],
   templateUrl: './recommendation-carousel.component.html',
   styleUrl: './recommendation-carousel.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RecommendationCarouselComponent {
   @Input({ required: true })

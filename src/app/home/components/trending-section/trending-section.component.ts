@@ -1,15 +1,18 @@
+import { NgClass } from '@angular/common';
 import {
   Component,
+  ChangeDetectionStrategy,
   OnInit,
   WritableSignal,
-  inject,
   signal,
+  inject,
 } from '@angular/core';
-import { Movie } from '../../../core/interfaces/movie.interface';
+import { takeUntil } from 'rxjs';
+import { TrendingTimeCategory } from '../../../core/enum';
+import { Movie } from '../../../core/interfaces';
 import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
+import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
 import { MovieCardHomeComponent } from '../movie-card-home/movie-card-home.component';
-import { TrendingTimeCategory } from '../../../core/enum/time-category.enum';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'home-trending-section',
@@ -17,12 +20,14 @@ import { NgClass } from '@angular/common';
   imports: [MovieCardHomeComponent, NgClass],
   templateUrl: './trending-section.component.html',
   styleUrl: './trending-section.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TrendingSectionComponent implements OnInit {
   public movies: WritableSignal<Movie[]> = signal<Movie[]>([]);
   public currentCategory: TrendingTimeCategory = TrendingTimeCategory.Day;
   public timeCategory = TrendingTimeCategory;
   private theMovieDbService = inject(ThemoviedbService);
+  private autoDestroy$ = inject(AutoDestroyService);
 
   ngOnInit(): void {
     this.loadMovies(this.currentCategory);
@@ -31,6 +36,7 @@ export class TrendingSectionComponent implements OnInit {
   loadMovies(category: string): void {
     this.theMovieDbService
       .getTrendingMovies(category)
+      .pipe(takeUntil(this.autoDestroy$))
       .subscribe((movies) => this.movies.set(movies));
   }
 

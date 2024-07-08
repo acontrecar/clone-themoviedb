@@ -1,24 +1,26 @@
 import {
-  ChangeDetectionStrategy,
   Component,
-  Input,
+  ChangeDetectionStrategy,
   OnInit,
+  Input,
   WritableSignal,
-  inject,
   signal,
+  inject,
 } from '@angular/core';
-import { MovieById } from '../../../core/interfaces/movie.interface';
-import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
-import { MovieHeroComponent } from '../../components/movie-hero/movie-hero.component';
-import { Cast } from '../../../core/interfaces/cast.interface';
-import { MovieCastComponent } from '../../components/movie-cast/movie-cast.component';
-import { MovieInfoComponent } from '../../components/movie-info/movie-info.component';
-import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
-import { forkJoin, takeUntil } from 'rxjs';
-import { Keyword } from '../../../core/interfaces/keywords.interface';
-import { Recommendation } from '../../../core/interfaces/recommendations.interfaces';
-import { RecommendationCarouselComponent } from '../../../common/components/recommendation-carousel/recommendation-carousel.component';
 import { ActivatedRoute } from '@angular/router';
+import { forkJoin, takeUntil } from 'rxjs';
+import { RecommendationCarouselComponent } from '../../../common/components/recommendation-carousel/recommendation-carousel.component';
+import {
+  MovieById,
+  Cast,
+  Keyword,
+  Recommendation,
+} from '../../../core/interfaces';
+import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
+import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
+import { MovieCastComponent } from '../../components/movie-cast/movie-cast.component';
+import { MovieHeroComponent } from '../../components/movie-hero/movie-hero.component';
+import { MovieInfoComponent } from '../../components/movie-info/movie-info.component';
 
 @Component({
   selector: 'app-movie-page',
@@ -69,8 +71,6 @@ export class MoviePageComponent implements OnInit {
         this.cast.set(cast);
         this.keyWords = keywords;
         this.recommendation = recommendation;
-
-        console.log(recommendation);
       });
   }
 }

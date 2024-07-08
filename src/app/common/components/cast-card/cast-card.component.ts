@@ -1,5 +1,5 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
-import { Cast } from '../../../core/interfaces/cast.interface';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Cast } from '../../../core/interfaces';
 
 @Component({
   selector: 'common-cast-card',
@@ -7,6 +7,7 @@ import { Cast } from '../../../core/interfaces/cast.interface';
   imports: [],
   templateUrl: './cast-card.component.html',
   styleUrl: './cast-card.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CastCardComponent {
   @Input({ required: true })
