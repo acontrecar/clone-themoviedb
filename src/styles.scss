@@ -117,6 +117,19 @@ main {
     padding-bottom: 20px;
     white-space: nowrap;
 
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #aaa;
+    }
+
     .movie_card_wrapper {
       display: flex;
       // flex: 0 0 auto;

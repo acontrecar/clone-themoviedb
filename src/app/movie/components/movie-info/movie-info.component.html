@@ -1,0 +1,42 @@
+<article>
+  <div class="links">
+    <!-- <a [href]="" target="_blank">
+      <img src="../../../../assets/svgToLink/redirectToJustWatch.svg" alt="" />
+    </a> -->
+
+    @if (homePage) {
+    <a class="border" [href]="homePage" target="_blank">
+      <img src="../../../../assets/svgToLink/redirectHomePage.svg" alt="" />
+    </a>
+    }
+  </div>
+  <p>
+    <strong> Titulo original </strong>
+    {{ original_title }}
+  </p>
+
+  <p>
+    <strong> Estado </strong>
+    {{ status }}
+  </p>
+
+  <p>
+    <strong> Idioma general </strong>
+    {{ original_language }}
+  </p>
+
+  <p>
+    <strong> Presupuesto </strong>
+
+    @if (budget!=0) {
+    {{ budget | currencyFormatter }}
+    }@else{ - }
+  </p>
+
+  <p>
+    <strong> Ingresos </strong>
+    @if (revenue!=0) {
+    {{ revenue | currencyFormatter }}
+    }@else{ - }
+  </p>
+</article>

@@ -11,11 +11,14 @@ import { ThemoviedbService } from '../../../core/services/common/themoviedb.serv
 import { MovieHeroComponent } from '../../components/movie-hero/movie-hero.component';
 import { Cast } from '../../../core/interfaces/cast.interface';
 import { MovieCastComponent } from '../../components/movie-cast/movie-cast.component';
+import { MovieInfoComponent } from '../../components/movie-info/movie-info.component';
+import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-movie-page',
   standalone: true,
-  imports: [MovieHeroComponent, MovieCastComponent],
+  imports: [MovieHeroComponent, MovieCastComponent, MovieInfoComponent],
   templateUrl: './movie-page.component.html',
   styleUrl: './movie-page.component.scss',
 })
@@ -30,14 +33,17 @@ export class MoviePageComponent implements OnInit {
   public cast: WritableSignal<Cast[]> = signal<Cast[]>([]);
 
   public movieServie = inject(ThemoviedbService);
+  public autoDestroy$ = inject(AutoDestroyService);
 
   ngOnInit(): void {
     this.movieServie
       .getMovieById(this.movieId)
+      .pipe(takeUntil(this.autoDestroy$))
       .subscribe((movie) => this.movie.set(movie));
 
     this.movieServie
       .getCast(this.movieId)
+      .pipe(takeUntil(this.autoDestroy$))
       .subscribe((cast) => this.cast.set(cast));
   }
 }

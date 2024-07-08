@@ -47,11 +47,21 @@
 
             @if (!l) { , } }
           </span>
+
+          <span> - </span>
+
+          @if(movie()?.runtime){
+          <span> {{ movie()!.runtime | timeConvert }} </span>
+          }
         </div>
 
         <!-- <a href="">Ver avance</a> -->
 
         <div class="general_info">
+          @if (movie()?.tagline) {
+
+          <h4 class="tagline">{{ movie()?.tagline }}</h4>
+          }
           <h3>Vista general</h3>
           <div class="overview">
             <p>{{ movie()?.overview }}</p>

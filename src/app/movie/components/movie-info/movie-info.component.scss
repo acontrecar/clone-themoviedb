@@ -1,0 +1,19 @@
+p {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px;
+}
+
+article {
+  margin-left: 10%;
+
+  .links {
+    margin-bottom: 15%;
+
+    .border {
+      border-left: 2px solid #d7d7d7;
+      padding-left: 5%;
+      margin-left: 5%;
+    }
+  }
+}

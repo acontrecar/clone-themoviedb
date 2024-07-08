@@ -1,6 +1,19 @@
 @if (movie()) {
 <movie-movie-hero [movie]="movie" />
-<main>
-  <movie-movie-cast [cast]="cast" />
+<main class="flex">
+  <div class="main_section">
+    <movie-movie-cast [cast]="cast" />
+  </div>
+
+  <section class="movie-details">
+    <movie-movie-info
+      [original_title]="movie()!.original_title"
+      [original_language]="movie()!.original_language"
+      [status]="movie()!.status"
+      [budget]="movie()!.budget"
+      [revenue]="movie()!.revenue"
+      [homePage]="movie()!.homepage"
+    />
+  </section>
 </main>
 }
