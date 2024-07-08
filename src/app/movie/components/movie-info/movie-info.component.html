@@ -39,4 +39,15 @@
     {{ revenue | currencyFormatter }}
     }@else{ - }
   </p>
+
+  <div class="keywords_section">
+    <h3>Palabras claves</h3>
+    <ul>
+      @for (keyword of keywords; track keyword.id) {
+      <li>
+        <a href="">{{ keyword.name }}</a>
+      </li>
+      }
+    </ul>
+  </div>
 </article>

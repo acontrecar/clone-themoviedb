@@ -1,0 +1,16 @@
+<section class="panel">
+  <h3 class="section-title">Recomendaciones</h3>
+
+  <div class="cast_section">
+    @for (recommen of recommendation; track recommen.id) {
+    <common-recommendation-card
+      [id]="recommen.id"
+      [media_type]="recommen.media_type"
+      [poster_path]="recommen.poster_path"
+      [release_date]="recommen.release_date"
+      [title]="recommen.title"
+      [vote_average]="recommen.vote_average"
+    />
+    }
+  </div>
+</section>

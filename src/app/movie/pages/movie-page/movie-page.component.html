@@ -3,6 +3,9 @@
 <main class="flex">
   <div class="main_section">
     <movie-movie-cast [cast]="cast" />
+    @if (recommendation.length>0) {
+    <shared-recommendation-carousel [recommendation]="recommendation" />
+    }
   </div>
 
   <section class="movie-details">
@@ -13,6 +16,7 @@
       [budget]="movie()!.budget"
       [revenue]="movie()!.revenue"
       [homePage]="movie()!.homepage"
+      [keywords]="keyWords"
     />
   </section>
 </main>

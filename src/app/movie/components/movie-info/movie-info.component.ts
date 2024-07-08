@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CurrencyFormatterPipe } from '../../../core/pipe/currency-formatter.pipe';
+import { Keyword } from '../../../core/interfaces/keywords.interface';
 
 @Component({
   selector: 'movie-movie-info',
@@ -26,4 +27,7 @@ export class MovieInfoComponent {
 
   @Input({ required: true })
   public homePage: string = '';
+
+  @Input({ required: true })
+  public keywords: Keyword[] = [];
 }
