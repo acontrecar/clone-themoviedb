@@ -1,1 +1,12 @@
-<p>tv-page works!</p>
+@if (tv()) {
+<tv-tv-hero [tv]="tv" />
+<!-- <main class="flex">
+      <div class="main_section">
+        <movie-movie-cast [cast]="cast" />
+        @if (recommendation.length>0) {
+        <shared-recommendation-carousel [recommendation]="recommendation" />
+        }
+      </div>
+
+    </main> -->
+}

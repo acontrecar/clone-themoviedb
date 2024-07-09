@@ -1,0 +1,66 @@
+@if (tv()) {
+<section class="movie_page">
+  <div
+    class="movie_page__background"
+    [ngStyle]="{
+      'background-image':
+        'url(https://image.tmdb.org/t/p/w500/' + tv()?.backdrop_path + ')'
+    }"
+  ></div>
+  <div class="movie_page__content">
+    <div class="content_image">
+      <img
+        class="img"
+        [src]="'https://image.tmdb.org/t/p/w500/' + tv()?.poster_path"
+        alt="Imagen de la pelicula"
+      />
+      @if (tv()?.homepage) {
+      <div (click)="redirectHomePage()" class="content__subtitle">
+        <div class="text">
+          <span>
+            <h4>Ahora en retransmision</h4>
+            <h4>Ver ahora</h4>
+          </span>
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="movie_page__information">
+      <div class="header">
+        <h1>
+          <span>{{ tv()?.name }}</span>
+          <span>({{ tv()?.first_air_date | date : "yyyy" }})</span>
+        </h1>
+
+        <div class="fact">
+          <span
+            >{{ tv()?.first_air_date | date : "d/M/yyyy" }} ({{
+              tv()?.original_language?.toUpperCase()
+            }})</span
+          >
+          <span> - </span>
+
+          <span>
+            @for (tv of tv()!.genres; track tv.id; let l = $last) {
+            {{ tv.name }}
+
+            @if (!l) { , } }
+          </span>
+        </div>
+
+        <div class="general_info">
+          @if (tv()?.tagline) {
+
+          <h4 class="tagline">{{ tv()?.tagline }}</h4>
+          }
+          <h3>Vista general</h3>
+          <div class="overview">
+            <p>{{ tv()?.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}
