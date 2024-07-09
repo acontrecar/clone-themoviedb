@@ -12,7 +12,7 @@
 
   <div class="container">
     <p class="title">
-      <a [routerLink]="['/movie', movie.id]">{{ movie.title }}</a>
+      <a [routerLink]="['/' + movie.media_type, movie.id]">{{ movie.title }}</a>
     </p>
     <p class="release-date">{{ movie.releaseData | date }}</p>
     <p>{{ movie.media_type }}</p>

@@ -12,6 +12,7 @@ import {
   MovieDBKeywordsResponse,
   Recommendation,
   MovieDBRecommendationsResponse,
+  MovieDBTvResponse,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
@@ -77,6 +78,47 @@ export class ThemoviedbService {
   }
 
   public getRecommendations(id: string): Observable<Recommendation[]> {
+    const url = `${this.baseUrl}/movie/${id}/recommendations`;
+
+    return this.http
+      .get<MovieDBRecommendationsResponse>(url)
+      .pipe(
+        map((response) =>
+          response.results.map((recommendation) =>
+            mapToSimplifiedRecommendation(recommendation)
+          )
+        )
+      );
+  }
+
+  // TV
+  public getTvById(id: string): Observable<MovieDBTvResponse> {
+    const url = `${this.baseUrl}/tv/${id}`;
+
+    return this.http.get<MovieDBTvResponse>(url);
+  }
+
+  public getTvCast(id: string): Observable<Cast[]> {
+    const url = `${this.baseUrl}/movie/${id}/credits`;
+
+    return this.http
+      .get<MovieDBCastResponse>(url)
+      .pipe(
+        map((response) =>
+          response.cast.map((cast) => mapToSimplifiedCast(cast))
+        )
+      );
+  }
+
+  public getTvKeywords(id: string): Observable<Keyword[]> {
+    const url = `${this.baseUrl}/movie/${id}/keywords`;
+
+    return this.http
+      .get<MovieDBKeywordsResponse>(url)
+      .pipe(map((response) => response.keywords));
+  }
+
+  public getTvRecommendations(id: string): Observable<Recommendation[]> {
     const url = `${this.baseUrl}/movie/${id}/recommendations`;
 
     return this.http
