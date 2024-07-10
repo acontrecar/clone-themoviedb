@@ -1,10 +1,10 @@
 export interface MovieDBTvCastResponse {
-  cast: Cast[];
-  crew: Cast[];
+  cast: TvCastResponse[];
+  crew: TvCastResponse[];
   id: number;
 }
 
-export interface Cast {
+export interface TvCastResponse {
   adult: boolean;
   gender: number;
   id: number;

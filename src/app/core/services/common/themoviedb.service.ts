@@ -13,11 +13,15 @@ import {
   Recommendation,
   MovieDBRecommendationsResponse,
   MovieDBTvResponse,
+  MovieDBTvCastResponse,
+  MovieDBRecommendationsTvResponse,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
   mapToSimplifiedCast,
   mapToSimplifiedRecommendation,
+  mapToSimplifiedTvCast,
+  mapToSimplifiedTvRecommendation,
 } from '../../mappers';
 
 @Injectable({
@@ -99,13 +103,13 @@ export class ThemoviedbService {
   }
 
   public getTvCast(id: string): Observable<Cast[]> {
-    const url = `${this.baseUrl}/movie/${id}/credits`;
+    const url = `${this.baseUrl}/tv/${id}/credits`;
 
     return this.http
-      .get<MovieDBCastResponse>(url)
+      .get<MovieDBTvCastResponse>(url)
       .pipe(
         map((response) =>
-          response.cast.map((cast) => mapToSimplifiedCast(cast))
+          response.cast.map((cast) => mapToSimplifiedTvCast(cast))
         )
       );
   }
@@ -119,14 +123,14 @@ export class ThemoviedbService {
   }
 
   public getTvRecommendations(id: string): Observable<Recommendation[]> {
-    const url = `${this.baseUrl}/movie/${id}/recommendations`;
+    const url = `${this.baseUrl}/tv/${id}/recommendations`;
 
     return this.http
-      .get<MovieDBRecommendationsResponse>(url)
+      .get<MovieDBRecommendationsTvResponse>(url)
       .pipe(
         map((response) =>
           response.results.map((recommendation) =>
-            mapToSimplifiedRecommendation(recommendation)
+            mapToSimplifiedTvRecommendation(recommendation)
           )
         )
       );

@@ -8,16 +8,26 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
-import { MovieDBTvResponse } from '../../../core/interfaces';
+import {
+  Cast,
+  MovieDBTvResponse,
+  Recommendation,
+} from '../../../core/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
 import { forkJoin, takeUntil } from 'rxjs';
 import { TvHeroComponent } from '../../components/tv-hero/tv-hero.component';
+import { MovieCastComponent } from '../../../movie/components/movie-cast/movie-cast.component';
+import { RecommendationCarouselComponent } from '../../../common/components/recommendation-carousel/recommendation-carousel.component';
 
 @Component({
   selector: 'app-tv-page',
   standalone: true,
-  imports: [TvHeroComponent],
+  imports: [
+    TvHeroComponent,
+    MovieCastComponent,
+    RecommendationCarouselComponent,
+  ],
   templateUrl: './tv-page.component.html',
   styleUrl: './tv-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,6 +38,8 @@ export class TvPageComponent implements OnInit {
 
   public tv: WritableSignal<MovieDBTvResponse | null> =
     signal<MovieDBTvResponse | null>(null);
+  public cast: WritableSignal<Cast[]> = signal<Cast[]>([]);
+  public recommendation: Recommendation[] = [];
 
   private theMovieDB$ = inject(ThemoviedbService);
   private autoDestroy$ = inject(AutoDestroyService);
@@ -41,10 +53,16 @@ export class TvPageComponent implements OnInit {
   }
 
   public loadData(): void {
-    forkJoin([this.theMovieDB$.getTvById(this.tvId)])
+    forkJoin([
+      this.theMovieDB$.getTvById(this.tvId),
+      this.theMovieDB$.getTvCast(this.tvId),
+      this.theMovieDB$.getTvRecommendations(this.tvId),
+    ])
       .pipe(takeUntil(this.autoDestroy$))
-      .subscribe(([tv]) => {
+      .subscribe(([tv, cast, recommendation]) => {
         this.tv.set(tv);
+        this.cast.set(cast);
+        this.recommendation = recommendation;
       });
   }
 }

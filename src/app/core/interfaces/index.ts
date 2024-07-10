@@ -4,3 +4,5 @@ export * from './movie.interface';
 export * from './recommendations.interfaces';
 export * from './trending-all-response.interface';
 export * from './tv.interfaces';
+export * from './tv-cast.interface';
+export * from './tv-recommendation.interface';

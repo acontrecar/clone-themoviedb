@@ -60,6 +60,7 @@ export interface Network {
 
 export enum OriginCountry {
   Jp = 'JP',
+  Us = 'US',
 }
 
 export interface Season {
