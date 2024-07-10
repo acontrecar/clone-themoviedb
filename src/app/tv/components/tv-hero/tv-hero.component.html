@@ -7,8 +7,8 @@
         'url(https://image.tmdb.org/t/p/w500/' + tv()?.backdrop_path + ')'
     }"
   ></div>
-  <div class="movie_page__content" [ngClass]="{ 'mb-30': tv()?.homepage }">
-    <div class="content_image">
+  <div class="movie_page__content">
+    <div class="content_image" [ngClass]="{ 'mb-30': tv()?.homepage }">
       <img
         class="img"
         [src]="'https://image.tmdb.org/t/p/w500/' + tv()?.poster_path"
