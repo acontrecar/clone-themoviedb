@@ -1,0 +1,53 @@
+<article>
+  <h3>Datos</h3>
+  <p>
+    <strong> Nombre original </strong>
+    {{ original_name }}
+  </p>
+
+  <p>
+    <strong> Estado </strong>
+    {{ status }}
+  </p>
+
+  <p>
+    <strong> Tipo </strong>
+    {{ type }}
+  </p>
+
+  @if (production_companies.length > 0) {
+  <p>
+    <strong>Canales</strong>
+  </p>
+
+  <ul class="companies">
+    @for (company of production_companies; track company.id) {
+    <li>
+      <a href="">
+        <img
+          loading="lazy"
+          [src]="'https://image.tmdb.org/t/p/w500' + company.logo_path"
+          [alt]="company.name"
+        />
+      </a>
+    </li>
+    }
+  </ul>
+  }
+
+  <p>
+    <strong> Idioma original </strong>
+    {{ original_language }}
+  </p>
+
+  <div class="keywords_section">
+    <h3>Palabras claves</h3>
+    <ul>
+      @for (keyword of keywords; track keyword.id) {
+      <li>
+        <a href="">{{ keyword.name }}</a>
+      </li>
+      }
+    </ul>
+  </div>
+</article>

@@ -6,12 +6,12 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { MovieDBTvResponse } from '../../../core/interfaces';
-import { DatePipe, NgStyle } from '@angular/common';
+import { DatePipe, NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'tv-tv-hero',
   standalone: true,
-  imports: [NgStyle, DatePipe],
+  imports: [NgStyle, DatePipe, NgClass],
   templateUrl: './tv-hero.component.html',
   styleUrl: './tv-hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

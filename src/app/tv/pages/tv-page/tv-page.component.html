@@ -7,5 +7,16 @@
     <shared-recommendation-carousel [recommendation]="recommendation" />
     }
   </div>
+
+  <section class="movie-details">
+    <tv-tv-info
+      [original_name]="tv()!.original_name"
+      [status]="tv()!.status"
+      [production_companies]="tv()!.production_companies"
+      [type]="tv()!.type"
+      [original_language]="tv()!.original_language"
+      [keywords]="keyWords"
+    />
+  </section>
 </main>
 }

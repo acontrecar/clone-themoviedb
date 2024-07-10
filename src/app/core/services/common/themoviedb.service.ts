@@ -15,6 +15,7 @@ import {
   MovieDBTvResponse,
   MovieDBTvCastResponse,
   MovieDBRecommendationsTvResponse,
+  MovieDBTvKeywordsResponse,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
@@ -115,11 +116,11 @@ export class ThemoviedbService {
   }
 
   public getTvKeywords(id: string): Observable<Keyword[]> {
-    const url = `${this.baseUrl}/movie/${id}/keywords`;
+    const url = `${this.baseUrl}/tv/${id}/keywords`;
 
     return this.http
-      .get<MovieDBKeywordsResponse>(url)
-      .pipe(map((response) => response.keywords));
+      .get<MovieDBTvKeywordsResponse>(url)
+      .pipe(map((response) => response.results));
   }
 
   public getTvRecommendations(id: string): Observable<Recommendation[]> {

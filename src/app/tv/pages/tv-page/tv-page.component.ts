@@ -10,6 +10,7 @@ import {
 import { ThemoviedbService } from '../../../core/services/common/themoviedb.service';
 import {
   Cast,
+  Keyword,
   MovieDBTvResponse,
   Recommendation,
 } from '../../../core/interfaces';
@@ -19,6 +20,7 @@ import { forkJoin, takeUntil } from 'rxjs';
 import { TvHeroComponent } from '../../components/tv-hero/tv-hero.component';
 import { MovieCastComponent } from '../../../movie/components/movie-cast/movie-cast.component';
 import { RecommendationCarouselComponent } from '../../../common/components/recommendation-carousel/recommendation-carousel.component';
+import { TvInfoComponent } from '../../components/tv-info/tv-info.component';
 
 @Component({
   selector: 'app-tv-page',
@@ -27,6 +29,7 @@ import { RecommendationCarouselComponent } from '../../../common/components/reco
     TvHeroComponent,
     MovieCastComponent,
     RecommendationCarouselComponent,
+    TvInfoComponent,
   ],
   templateUrl: './tv-page.component.html',
   styleUrl: './tv-page.component.scss',
@@ -40,6 +43,7 @@ export class TvPageComponent implements OnInit {
     signal<MovieDBTvResponse | null>(null);
   public cast: WritableSignal<Cast[]> = signal<Cast[]>([]);
   public recommendation: Recommendation[] = [];
+  public keyWords: Keyword[] = [];
 
   private theMovieDB$ = inject(ThemoviedbService);
   private autoDestroy$ = inject(AutoDestroyService);
@@ -57,12 +61,14 @@ export class TvPageComponent implements OnInit {
       this.theMovieDB$.getTvById(this.tvId),
       this.theMovieDB$.getTvCast(this.tvId),
       this.theMovieDB$.getTvRecommendations(this.tvId),
+      this.theMovieDB$.getTvKeywords(this.tvId),
     ])
       .pipe(takeUntil(this.autoDestroy$))
-      .subscribe(([tv, cast, recommendation]) => {
+      .subscribe(([tv, cast, recommendation, keywords]) => {
         this.tv.set(tv);
         this.cast.set(cast);
         this.recommendation = recommendation;
+        this.keyWords = keywords;
       });
   }
 }

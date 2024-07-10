@@ -1,4 +1,4 @@
-import { NgStyle, DatePipe } from '@angular/common';
+import { NgStyle, DatePipe, NgClass } from '@angular/common';
 import {
   Component,
   ChangeDetectionStrategy,
@@ -12,7 +12,7 @@ import { TimeConvertPipe } from '../../../core/pipe';
 @Component({
   selector: 'movie-movie-hero',
   standalone: true,
-  imports: [NgStyle, DatePipe, TimeConvertPipe],
+  imports: [NgStyle, DatePipe, TimeConvertPipe, NgClass],
   templateUrl: './movie-hero.component.html',
   styleUrl: './movie-hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

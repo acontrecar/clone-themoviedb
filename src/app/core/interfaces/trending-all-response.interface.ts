@@ -33,5 +33,5 @@ export enum OriginalLanguage {
   En = 'en',
   Fr = 'fr',
   ID = 'id',
-  Ja = 'ja',
+  Ja = 'Japones',
 }

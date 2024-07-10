@@ -7,7 +7,7 @@
         'url(https://image.tmdb.org/t/p/w500/' + movie()?.poster_path + ')'
     }"
   ></div>
-  <div class="movie_page__content">
+  <div class="movie_page__content" [ngClass]="{ 'mb-30': movie()?.homepage }">
     <div class="content_image">
       <img
         class="img"
