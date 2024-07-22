@@ -52,37 +52,37 @@ svg {
 
 // Global animations
 
-::view-transition-old(root) {
-  animation: exit 1s ease 0s 1 normal forwards;
-}
+// ::view-transition-old(root) {
+//   animation: exit 1s ease 0s 1 normal forwards;
+// }
 
-::view-transition-new(root) {
-  animation: enter 2s ease 0s 1 normal forwards;
-}
+// ::view-transition-new(root) {
+//   animation: enter 2s ease 0s 1 normal forwards;
+// }
 
-@keyframes enter {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
+// @keyframes enter {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-50px);
+//   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
-@keyframes exit {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
+// @keyframes exit {
+//   from {
+//     opacity: 1;
+//     transform: scale(1);
+//   }
 
-  to {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-}
+//   to {
+//     opacity: 0;
+//     transform: scale(0.6);
+//   }
+// }
 
 main {
   padding: 5%;
@@ -105,7 +105,7 @@ main {
 
   .home_sections__header {
     display: flex;
-    align-items: center;
+    align-items: normal;
     margin-bottom: 20px;
     flex-wrap: wrap;
 
