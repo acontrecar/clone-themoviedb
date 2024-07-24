@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 
 @Component({
   selector: 'navbar',
@@ -8,4 +13,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  public isOpenMenu: WritableSignal<boolean> = signal(false);
+
+  public openMenu(): void {
+    this.isOpenMenu.set(!this.isOpenMenu());
+    // console.log(this.isOpenMenu());
+  }
+}

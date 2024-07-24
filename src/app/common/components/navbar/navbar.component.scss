@@ -85,9 +85,9 @@ a {
       flex-wrap: wrap;
 
       .menu {
+        display: none;
         width: 100%;
         order: 4;
-        transition: all 1s ease-out;
         .menu-nav {
           display: flex;
           flex-direction: column;
@@ -103,7 +103,6 @@ a {
               }
             }
             .dropdown__menu {
-              // position: absolute;
               background-color: rgb(6, 54, 94);
             }
           }
@@ -125,35 +124,3 @@ a {
     }
   }
 }
-
-// @media (max-width: 507px) {
-//   header {
-//     position: relative;
-//     nav {
-//       .menu {
-//         .menu-nav {
-//           display: flex;
-//           flex-direction: column;
-//           width: 100%;
-//           position: absolute;
-//           left: 0;
-//           margin-top: 18px;
-//           background-color: rgb(3, 37, 65);
-//           .nav-item {
-//             float: none;
-//             a {
-//               position: relative;
-//             }
-//             .dropdown__menu {
-//               position: relative;
-//             }
-//           }
-//         }
-//       }
-
-//       .hamburger-menu {
-//         display: block;
-//       }
-//     }
-//   }
-// }
