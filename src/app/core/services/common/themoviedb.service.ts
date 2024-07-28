@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import {
   Movie,
@@ -16,6 +16,8 @@ import {
   MovieDBTvCastResponse,
   MovieDBRecommendationsTvResponse,
   MovieDBTvKeywordsResponse,
+  PersonResponse,
+  PersonResponseResult,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
@@ -23,6 +25,7 @@ import {
   mapToSimplifiedRecommendation,
   mapToSimplifiedTvCast,
   mapToSimplifiedTvRecommendation,
+  mapToSimplifiedPersonResponse,
 } from '../../mappers';
 
 @Injectable({
@@ -135,5 +138,32 @@ export class ThemoviedbService {
           )
         )
       );
+  }
+  public getPopularMoviesAndTvPaginates(
+    timeWindow: string,
+    page: number = 1
+  ): Observable<Movie[]> {
+    const url = `${this.baseUrl}/${timeWindow}/popular?page=${page}`;
+
+    return this.http.get<TrendingAllResponse>(url).pipe(
+      map((response) =>
+        response.results.map((movie) => mapToSimplifiedMovie(movie))
+      ),
+      catchError((error) => {
+        console.error('Error getting popular movies:', error);
+        return [];
+      })
+    );
+  }
+
+  // Person
+  public getPopularPersonList(
+    page: number = 1
+  ): Observable<PersonResponseResult> {
+    const url = `${this.baseUrl}/trending/person/day?page=${page}`;
+
+    return this.http
+      .get<PersonResponse>(url)
+      .pipe(map((response) => mapToSimplifiedPersonResponse(response)));
   }
 }

@@ -30,8 +30,11 @@ export interface Result {
 }
 
 export enum OriginalLanguage {
+  De = 'de',
   En = 'en',
   Fr = 'fr',
   ID = 'id',
-  Ja = 'Japones',
+  Pt = 'pt',
+  Sv = 'sv',
+  Tr = 'tr',
 }

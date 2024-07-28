@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeLayoutComponent } from './home/layout/home-layout/home-layout.component';
 import { MovieHomeLayoutComponent } from './movie/layout/home-layout/home-layout.component';
 import { TvHomeLayoutComponent } from './tv/layout/tv-home-layout/tv-home-layout.component';
+import { PersonHomeLayoutComponent } from './person/layout/home-layout/home-layout.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +35,17 @@ export const routes: Routes = [
       {
         path: '',
         loadChildren: () => import('./tv/tv.routes').then((r) => r.TV_ROUTES),
+      },
+    ],
+  },
+  {
+    path: 'person',
+    component: PersonHomeLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./person/person.routes').then((r) => r.PERSON_ROUTES),
       },
     ],
   },
