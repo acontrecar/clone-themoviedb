@@ -32,8 +32,6 @@ export class HomePageComponent implements OnInit {
         this.persons.set(response.results);
         this.currentPage = response.page;
         this.totalPages = response.total_pages;
-
-        console.table(this.persons());
       });
   }
 

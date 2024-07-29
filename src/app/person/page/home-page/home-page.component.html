@@ -1,1 +1,17 @@
-<p>Paco</p>
+<h1>Gente popular</h1>
+@if (persons()) {
+<section class="popular-persons">
+  <div class="person-list">
+    @for (person of persons(); track person.id) {
+    <div class="person_card">
+      <img [src]="person.profile_path" alt="Person" />
+
+      <div class="person_card__container">
+        <h3 class="name">{{ person.name }}</h3>
+        <p class="known_for">{{ person.known_for.join(", ") }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+}
