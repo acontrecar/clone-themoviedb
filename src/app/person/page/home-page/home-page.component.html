@@ -2,16 +2,31 @@
 @if (persons()) {
 <section class="popular-persons">
   <div class="person-list">
-    @for (person of persons(); track person.id) {
+    @for (person of persons(); track person.id) { @defer () {
     <div class="person_card">
-      <img [src]="person.profile_path" alt="Person" />
+      <img loading="lazy" [src]="person.profile_path" [alt]="person.name" />
 
       <div class="person_card__container">
         <h3 class="name">{{ person.name }}</h3>
         <p class="known_for">{{ person.known_for.join(", ") }}</p>
       </div>
     </div>
-    }
+    } @loading {
+    <div class="skeleton_card"></div>
+    } }
+  </div>
+
+  <div class="pagination">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+      Anterior
+    </button>
+    <span>Página {{ currentPage }} de {{ totalPages }}</span>
+    <button
+      (click)="goToPage(currentPage + 1)"
+      [disabled]="currentPage === totalPages"
+    >
+      Siguiente
+    </button>
   </div>
 </section>
 }
