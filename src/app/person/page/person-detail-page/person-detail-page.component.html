@@ -1,6 +1,6 @@
 @if (person()) {
 <section>
-  <article>
+  <article class="person-details">
     <person-info-details
       [profile_path]="person().profile_path"
       [known_for_department]="person().known_for_department"
@@ -12,7 +12,10 @@
     />
   </article>
 
-  <article>Hola</article>
+  <article class="main_section">
+    <person-bio [name]="person().name" [biography]="person().biography" />
+    <person-know-carousel [credits]="credits" />
+  </article>
 </section>
 
 }

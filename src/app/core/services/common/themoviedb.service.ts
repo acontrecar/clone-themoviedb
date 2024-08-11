@@ -19,6 +19,8 @@ import {
   PersonResponse,
   PersonResponseResult,
   PersonDetailResponse,
+  MovieDBCreditstResponse,
+  Credits,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
@@ -27,6 +29,7 @@ import {
   mapToSimplifiedTvCast,
   mapToSimplifiedTvRecommendation,
   mapToSimplifiedPersonResponse,
+  mapToSimplifiedCredits,
 } from '../../mappers';
 
 @Injectable({
@@ -171,5 +174,16 @@ export class ThemoviedbService {
   public getPersonDetails(id: string): Observable<PersonDetailResponse> {
     const url = `${this.baseUrl}/person/${id}`;
     return this.http.get<PersonDetailResponse>(url);
+  }
+
+  public getPersonCredits(id: string): Observable<Credits[]> {
+    const url = `${this.baseUrl}/person/${id}/combined_credits`;
+    return this.http
+      .get<MovieDBCreditstResponse>(url)
+      .pipe(
+        map((response) =>
+          response.cast.map((credit) => mapToSimplifiedCredits(credit))
+        )
+      );
   }
 }

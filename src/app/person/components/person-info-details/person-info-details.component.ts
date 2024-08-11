@@ -28,8 +28,4 @@ export class PersonInfoDetailsComponent {
 
   @Input()
   public also_known_as: string[] = [];
-
-  constructor() {
-    console.log(this.profile_path);
-  }
 }

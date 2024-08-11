@@ -298,3 +298,13 @@ main {
     margin-bottom: 30px;
   }
 }
+
+// PERSON
+.person-section {
+  padding: 30px 0;
+
+  &__title {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+  }
+}

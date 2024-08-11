@@ -7,3 +7,4 @@ export * from './tv.interfaces';
 export * from './tv-cast.interface';
 export * from './tv-recommendation.interface';
 export * from './person.interface';
+export * from './person-credits.interface';

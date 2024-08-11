@@ -1,0 +1,10 @@
+<div class="person-section">
+  <h3 class="person-section__title">Conocido por</h3>
+  <div class="person-section__content">
+    <div class="credits">
+      @for (credit of credits; track credit.id) {
+      <person-know-card [credit]="credit" />
+      }
+    </div>
+  </div>
+</div>
