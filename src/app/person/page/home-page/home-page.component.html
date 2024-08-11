@@ -6,7 +6,7 @@
     <div class="person_card">
       <img loading="lazy" [src]="person.profile_path" [alt]="person.name" />
 
-      <div class="person_card__container">
+      <div [routerLink]="['/person', person.id]" class="person_card__container">
         <h3 class="name">{{ person.name }}</h3>
         <p class="known_for">{{ person.known_for.join(", ") }}</p>
       </div>

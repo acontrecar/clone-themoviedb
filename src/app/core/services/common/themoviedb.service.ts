@@ -18,6 +18,7 @@ import {
   MovieDBTvKeywordsResponse,
   PersonResponse,
   PersonResponseResult,
+  PersonDetailResponse,
 } from '../../interfaces';
 import {
   mapToSimplifiedMovie,
@@ -165,5 +166,10 @@ export class ThemoviedbService {
     return this.http
       .get<PersonResponse>(url)
       .pipe(map((response) => mapToSimplifiedPersonResponse(response)));
+  }
+
+  public getPersonDetails(id: string): Observable<PersonDetailResponse> {
+    const url = `${this.baseUrl}/person/${id}`;
+    return this.http.get<PersonDetailResponse>(url);
   }
 }

@@ -3,11 +3,12 @@ import { ThemoviedbService } from '../../../core/services/common/themoviedb.serv
 import { AutoDestroyService } from '../../../core/services/utils/auto-destroy.service';
 import { takeUntil } from 'rxjs';
 import { Person } from '../../../core/interfaces';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })

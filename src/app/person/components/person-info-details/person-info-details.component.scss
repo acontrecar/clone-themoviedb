@@ -1,0 +1,23 @@
+p {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+
+  img {
+    border-radius: 5vh;
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+}
