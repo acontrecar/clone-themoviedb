@@ -308,3 +308,13 @@ main {
     font-size: 1.3rem;
   }
 }
+
+.nonee {
+  display: block;
+}
+
+@media (width <= 650px) {
+  .nonee {
+    display: none;
+  }
+}

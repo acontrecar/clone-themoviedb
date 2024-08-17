@@ -29,4 +29,7 @@ export class PersonInfoDetailsComponent {
 
   @Input()
   public also_known_as: string[] = [];
+
+  @Input()
+  public name: string = '';
 }

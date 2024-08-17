@@ -1,4 +1,4 @@
-<div>
+<div class="info-container">
   <div class="photo">
     <img
       loading="eager"
@@ -6,6 +6,10 @@
       alt=""
     />
   </div>
+
+  <h1 class="name">
+    <strong>{{ name }}</strong>
+  </h1>
 
   <h2>Información personal</h2>
   <p>
@@ -35,7 +39,9 @@
     {{ place_of_birth }}
   </p>
 
-  <p class="mb-0"><strong>También conocido como</strong></p>
-  @for(name of also_known_as; track $index){ {{ name }} <br />
-  }
+  <div class="nonee">
+    <p class="mb-0"><strong>También conocido como</strong></p>
+    @for(name of also_known_as; track $index){ {{ name }} <br />
+    }
+  </div>
 </div>
