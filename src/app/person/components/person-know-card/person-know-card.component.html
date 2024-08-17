@@ -1,0 +1,13 @@
+<div [routerLink]="['/' + credit.media_type, credit.id]" class="card">
+  <div class="image-container">
+    <img
+      loading="lazy"
+      class="image"
+      [src]="credit.poster_path"
+      [alt]="'Poster de la pelicula' + credit.name"
+    />
+  </div>
+  <div class="container">
+    <p class="character title">{{ credit.name }}</p>
+  </div>
+</div>

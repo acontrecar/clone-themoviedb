@@ -1,0 +1,22 @@
+@if (person()) {
+<section>
+  <article class="person-details">
+    <person-info-details
+      [profile_path]="person().profile_path"
+      [known_for_department]="person().known_for_department"
+      [gender]="person().gender"
+      [birthday]="person().birthday"
+      [deathday]="person().deathday"
+      [place_of_birth]="person().place_of_birth"
+      [also_known_as]="person().also_known_as"
+      [name]="person().name"
+    />
+  </article>
+
+  <article class="main_section">
+    <person-bio [name]="person().name" [biography]="person().biography" />
+    <person-know-carousel [credits]="credits" />
+  </article>
+</section>
+
+}

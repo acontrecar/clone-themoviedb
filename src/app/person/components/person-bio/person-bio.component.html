@@ -1,0 +1,20 @@
+<div>
+  <h1 class="name nonee">
+    {{ name }}
+  </h1>
+
+  <div class="person-section">
+    <h3 class="person-section__title">Biografía</h3>
+    <div class="person-section__content">
+      @if (biography) {
+      <p>
+        @for (item of biography.split('\n'); track $index) {
+        {{ item }}<br />
+        }
+      </p>
+      } @else {
+      <p>-</p>
+      }
+    </div>
+  </div>
+</div>

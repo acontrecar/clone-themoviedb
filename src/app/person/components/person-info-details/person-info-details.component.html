@@ -1,0 +1,47 @@
+<div class="info-container">
+  <div class="photo">
+    <img
+      loading="eager"
+      [src]="'https://image.tmdb.org/t/p/w500/' + profile_path"
+      alt=""
+    />
+  </div>
+
+  <h1 class="name">
+    <strong>{{ name }}</strong>
+  </h1>
+
+  <h2>Información personal</h2>
+  <p>
+    <strong> Conocido por </strong>
+    {{ known_for_department }}
+  </p>
+
+  <p>
+    <strong> Sexo </strong>
+    @if(gender === 2){ masculino } @else{ femenino }
+  </p>
+
+  <p>
+    <strong> Fecha de nacimiento </strong>
+    {{ birthday | dateFormat }}
+  </p>
+
+  @if(deathday){
+  <p>
+    <strong> Fecha de muerte </strong>
+    {{ deathday | dateFormat }}
+  </p>
+  }
+
+  <p>
+    <strong> Lugar de nacimiento </strong>
+    {{ place_of_birth }}
+  </p>
+
+  <div class="nonee">
+    <p class="mb-0"><strong>También conocido como</strong></p>
+    @for(name of also_known_as; track $index){ {{ name }} <br />
+    }
+  </div>
+</div>

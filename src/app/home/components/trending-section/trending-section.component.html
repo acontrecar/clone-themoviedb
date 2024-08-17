@@ -1,0 +1,22 @@
+<section class="home_sections">
+  <div class="home_sections__header">
+    <h2>Tendencias</h2>
+
+    <div class="home_sections__header__sub">
+      <div [ngClass]="{ active: currentCategory === timeCategory.Day }">
+        <a (click)="changeCategory(timeCategory.Day)"> Hoy </a>
+      </div>
+
+      <div [ngClass]="{ active: currentCategory === timeCategory.Week }">
+        <a (click)="changeCategory(timeCategory.Week)"> Esta Semana </a>
+      </div>
+    </div>
+  </div>
+  <div class="movies_section">
+    <div class="movie_card_wrapper">
+      @for (movie of movies(); track movie.id) {
+      <home-movie-card-home [movie]="movie" />
+      }
+    </div>
+  </div>
+</section>

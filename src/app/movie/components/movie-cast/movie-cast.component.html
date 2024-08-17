@@ -1,0 +1,9 @@
+<section class="panel">
+  <h3 class="section-title">Reparto principal</h3>
+
+  <div class="cast_section">
+    @for (cast of cast(); track cast.id) {
+    <common-cast-card [cast]="cast" />
+    }
+  </div>
+</section>

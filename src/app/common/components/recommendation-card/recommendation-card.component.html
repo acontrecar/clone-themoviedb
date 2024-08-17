@@ -1,0 +1,14 @@
+<div [routerLink]="['/' + media_type, id]" class="card">
+  <div class="image-container">
+    <img
+      loading="lazy"
+      class="image"
+      [src]="poster_path"
+      alt="Imagen de actor"
+    />
+  </div>
+  <div class="container">
+    <p class="character title">{{ title }}</p>
+    <p class="character">{{ vote_average | percentage }}</p>
+  </div>
+</div>

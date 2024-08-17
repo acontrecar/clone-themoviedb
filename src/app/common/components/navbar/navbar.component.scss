@@ -1,0 +1,127 @@
+header {
+  padding: 2%;
+  background-color: rgb(3, 37, 65);
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    // justify-content: space-around;
+    align-items: center;
+
+    .menu {
+      .menu-nav {
+        display: flex;
+        list-style: none;
+
+        .nav-item {
+          margin: 10px 15px;
+
+          &:hover {
+            .dropdown__menu {
+              visibility: visible;
+            }
+          }
+
+          .nav-item_link {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.2rem;
+            position: relative;
+          }
+
+          .dropdown__menu {
+            position: absolute;
+            visibility: hidden;
+            padding: 12px 16px;
+            z-index: 1;
+            line-height: 34px;
+            border: 1px solid rgb(14, 14, 14);
+            background-color: #ffffff;
+            border-radius: 0.25rem;
+
+            li {
+              list-style: none;
+              .dropdown__link {
+                color: black;
+                padding: 3px 1.5rem;
+                padding-right: calc(3rem + 16px);
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .search-icon {
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hamburger-menu {
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.logo {
+  width: 154px;
+  height: 20px;
+}
+
+@media (max-width: 507px) {
+  header {
+    nav {
+      flex-wrap: wrap;
+
+      .menu {
+        display: none;
+        width: 100%;
+        order: 4;
+        .menu-nav {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          left: 0;
+          margin-top: 18px;
+          background-color: rgb(3, 37, 65);
+
+          .nav-item {
+            &:hover {
+              .dropdown__menu {
+                position: relative;
+              }
+            }
+            .dropdown__menu {
+              background-color: rgb(6, 54, 94);
+            }
+          }
+        }
+      }
+
+      .hamburger-menu {
+        display: block;
+        order: 1;
+      }
+
+      .logo_ancle {
+        order: 2;
+      }
+
+      .search-icon {
+        order: 2;
+      }
+    }
+  }
+}

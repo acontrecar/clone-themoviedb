@@ -1,0 +1,19 @@
+.flex {
+  display: flex;
+
+  @media (width <= 650px) {
+    flex-direction: column;
+  }
+
+  .main_section {
+    max-width: 70%;
+
+    @media (width <= 650px) {
+      max-width: 100vw;
+    }
+  }
+
+  .movie-details {
+    width: 100%;
+  }
+}

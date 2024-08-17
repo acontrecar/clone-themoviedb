@@ -1,0 +1,14 @@
+<div [routerLink]="['/person', cast.id]" class="card">
+  <div class="image-container">
+    <img
+      loading="lazy"
+      class="image"
+      [src]="cast.avatar"
+      alt="Imagen de actor"
+    />
+  </div>
+  <div class="container">
+    <p class="title">{{ cast.name }}</p>
+    <p class="character">{{ cast.character }}</p>
+  </div>
+</div>

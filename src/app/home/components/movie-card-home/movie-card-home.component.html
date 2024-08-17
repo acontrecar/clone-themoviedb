@@ -1,0 +1,20 @@
+<div class="card">
+  <div class="image-container">
+    <img
+      loading="lazy"
+      class="image"
+      [src]="movie.poster"
+      alt="Poster de la película"
+    />
+    <div class="rating">{{ movie.rating | roundNumber : 1 }}</div>
+    <abbr [title]="movie.title"></abbr>
+  </div>
+
+  <div class="container">
+    <p class="title">
+      <a [routerLink]="['/' + movie.media_type, movie.id]">{{ movie.title }}</a>
+    </p>
+    <p class="release-date">{{ movie.releaseData | date }}</p>
+    <!-- <p>{{ movie.media_type }}</p> -->
+  </div>
+</div>

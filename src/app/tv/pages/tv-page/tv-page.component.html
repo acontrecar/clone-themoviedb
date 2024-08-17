@@ -1,0 +1,22 @@
+@if (tv()) {
+<tv-tv-hero [tv]="tv" />
+<main class="flex">
+  <div class="main_section">
+    <movie-movie-cast [cast]="cast" />
+    @if (recommendation.length>0) {
+    <shared-recommendation-carousel [recommendation]="recommendation" />
+    }
+  </div>
+
+  <section class="movie-details">
+    <tv-tv-info
+      [original_name]="tv()!.original_name"
+      [status]="tv()!.status"
+      [production_companies]="tv()!.production_companies"
+      [type]="tv()!.type"
+      [original_language]="tv()!.original_language"
+      [keywords]="keyWords"
+    />
+  </section>
+</main>
+}

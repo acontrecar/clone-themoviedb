@@ -1,27 +1,39 @@
 # CloneThemoviedb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+![cloneThemoviedb](<https://clone-themoviedb-antoniocc.netlify.app/assets/localhost_4200_ (2).png>)
 
-## Development server
+Este proyecto ha sido inspirado en [The Movie Database (TMDB)](https://www.themoviedb.org/), creado utilizando [Angular CLI](https://github.com/angular/angular-cli) versión 17.0.0. El proyecto consume la API de TMDB para mostrar información sobre películas, series y personajes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos Previos
 
-## Code scaffolding
+1. **Registro en TMDB**: Regístrate en [TMDB](https://developer.themoviedb.org/) y obtén tu API key.
+2. **Node.js**: Asegúrate de tener [Node.js](https://nodejs.org/) instalado en tu máquina.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuración
 
-## Build
+1. **Obtener API Key**: Regístrate en la página de [TMDB](https://developer.themoviedb.org/) y obtén tu API key.
+2. **Configurar API Key**: En la carpeta `src/environments`, sustituye el valor de `API_KEY` en los archivos de entorno por tu propia API key.
+3. **Instalar dependencias**: Ejecuta el siguiente comando para instalar las dependencias del proyecto:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```
+   npm install
+   ```
 
-## Running unit tests
+4. **Iniciar el servidor de desarrollo**: Ejecuta el siguiente comando para iniciar la aplicación en modo desarrollo:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```
+   ng serve
+   ```
 
-## Running end-to-end tests
+   La aplicación estará disponible en 'http://localhost:4200/'.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Live Demo
 
-## Further help
+Puedes ver una demo en vivo del proyecto en el siguiente enlace: [Live Demo](https://clone-themoviedb-antoniocc.netlify.app/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Tecnologías Utilizadas
+
+- **Angular**: Framework principal para la construcción de la aplicación.
+- **TMDB API**: API utilizada para obtener los datos de películas y series.
+- **SCSS**: Para el diseño y estilo de la aplicación.
+- **Netlify**: Para el despliegue de la demo en vivo.

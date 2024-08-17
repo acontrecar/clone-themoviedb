@@ -1,0 +1,24 @@
+<section class="home_sections">
+  <div class="home_sections__header">
+    <h2>Lo más popular</h2>
+
+    <div class="home_sections__header__sub">
+      <div [ngClass]="{ active: currentCategory === popularTimeCategory.Tv }">
+        <a (click)="changeCategory(popularTimeCategory.Tv)"> En television </a>
+      </div>
+
+      <div
+        [ngClass]="{ active: currentCategory === popularTimeCategory.Movie }"
+      >
+        <a (click)="changeCategory(popularTimeCategory.Movie)"> Peliculas </a>
+      </div>
+    </div>
+  </div>
+  <div class="movies_section">
+    <div class="movie_card_wrapper">
+      @for (movie of movies(); track movie.id) {
+      <home-movie-card-home [movie]="movie" />
+      }
+    </div>
+  </div>
+</section>
