@@ -12,4 +12,11 @@ import { NavbarComponent } from './common/components/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'clone-themoviedb';
+
+  constructor() {
+    console.log(
+      '%cHola, gracias por visitar esta página!\n\nSi quieres continuar investigando no dudes en hacerlo en:\n\nwww.linkedin.com/in/antoniocontrerascárdenas',
+      'font-weight: bold; font-style: italic; font-size: 1.2rem'
+    );
+  }
 }
