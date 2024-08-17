@@ -20,13 +20,13 @@
 
   <p>
     <strong> Fecha de nacimiento </strong>
-    {{ birthday }}
+    {{ birthday | dateFormat }}
   </p>
 
   @if(deathday){
   <p>
     <strong> Fecha de muerte </strong>
-    {{ deathday }}
+    {{ deathday | dateFormat }}
   </p>
   }
 

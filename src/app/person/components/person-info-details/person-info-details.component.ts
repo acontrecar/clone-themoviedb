@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { DateFormatPipe } from '../../../core/pipe/date-format.pipe';
 
 @Component({
   selector: 'person-info-details',
   standalone: true,
-  imports: [],
+  imports: [DateFormatPipe],
   templateUrl: './person-info-details.component.html',
   styleUrl: './person-info-details.component.scss',
 })
